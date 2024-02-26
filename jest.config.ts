@@ -8,6 +8,7 @@ const config: Config.InitialOptions = {
   moduleNameMapper: {
     '@/(.*)': '<rootDir>/src/$1',
   },
+  testEnvironment: 'jsdom',
 };
 
 export default config;

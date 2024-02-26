@@ -4,7 +4,7 @@ This is my Frontend test created for Clorian. The project includes:
 
 - Login page (used to demostrate the advantages of react query - simple example, save user authenticated data with zustand and routing with react router dom). 
 
-- There is a header with the Clorian logo, a link to the project github url and a logout button.
+- There is a header with the Clorian logo, a link to the project github url and a logout button. It also includes a "hamburger icon" demo for mobile menu.
 
 - After get authenticated, the user will be able to see the home page which contains a list of 10 products with the following information: id, name, description, date, quantity and cost. In this page, the user will be able to select the number of products he wants to add to the cart (up to 10). It also contains the button "add to the cart" to complete the adding operation. The cart icon contains a number field that indicates the number of products the user has added. This page also contains a search bar to filter the list and a dropdown to sort the list by name or description.
 
@@ -21,7 +21,8 @@ This is my Frontend test created for Clorian. The project includes:
 | Zustand      | Minimalist state management                       |
 | TypeScript   | Static typing for JavaScript                      |
 | Vite         | Build tool and development server                 |
-| Tailwindcss  | styles
+| Tailwindcss  | Styles                                            |
+| Vitest       | Unit tests                                        |
 
 ## Features
 
@@ -65,6 +66,15 @@ To run the project locally, simply execute:
 ```
 npm start
 ```
+### Running unit tests
+
+To run the project unit tests, simply execute:
+
+```
+npm test
+```
+### Authentication
+
 To get authenticated use the following credentials:
 
 user: user
@@ -95,10 +105,12 @@ Here's a basic overview of the significant folders in the project:
 ```
 ├── public
 └── src
+  ├── assets
   ├── components
   ├── hooks
   ├── lib
   ├── pages
+  |     ├── __tests__
   ├── routes
   ├── services
   ├── store
@@ -106,17 +118,19 @@ Here's a basic overview of the significant folders in the project:
 ```
 
 
-| Folder      | Description                                                                                          |
-|-------------|------------------------------------------------------------------------------------------------------|
-| **`src/`**   | Contains the main source code for the application.                                                   |
-| `components`| Reusable React components, each handling a specific piece of the UI.                                  |
+| Folder      | Description                                                                                               |
+|-------------|-----------------------------------------------------------------------------------------------------------|
+| **`src/`**  | Contains the main source code for the application.                                                        |
+| `assets    `| Images and other assets.                                                                                  |
+| `components`| Reusable React components, each handling a specific piece of the UI.                                      |
 | `hooks`     | Custom React hooks that encapsulate logic and behaviors which can be reused across different components.  |
-| `lib`       | Miscellaneous utility functions, helpers, and other standalone pieces of logic.                          |
-| `pages`     | Components representing full pages in the application, typically corresponding to routes.                |
-| `routes`    | Configuration and components related to routing in the application.                                     |
+| `lib`       | Miscellaneous utility functions, helpers, and other standalone pieces of logic.                           |
+| `pages`     | Components representing full pages in the application, typically corresponding to routes.                 |
+| `__tests__` | Unit test files related to the page components                                                            |
+| `routes`    | Configuration and components related to routing in the application.                                       |
 | `services`  | Functions or classes that handle tasks like API calls, data processing, or other "service"-like tasks.    |
-| `store`     | Zustand st ores for state management, holding |
-| **`public/`**   | Contains static assets like images, fonts, and the entry HTML file. Assets in this directory are served directly and are not processed by bundlers like Vite. |
+| `store`     | Zustand st ores for state management, holding                                                             |
+| **`public/`**  | Contains static assets like images, fonts, and the entry HTML file. Assets in this directory are served| directly and are not processed by bundlers like Vite.                                                                     |
 
 
 
@@ -129,7 +143,7 @@ Here's a basic overview of the significant folders in the project:
 | Zustand      | For simple and scalable state management.                      |
 | TypeScript   | For type-safe code and scalability.                            |
 | Vite         | For faster builds and a smoother developer experience.         |
-
+| Vitest       | Next generation testing framework                              |
 
 ## About the author:
 

@@ -120,6 +120,10 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles }) => {
                   <Select
                     disabled={article.fechaDeValidez === getProductDate(false)}
                     label="Cantidad:"
+                    value={selectedArticles
+                      .find((item) => item.id === article.id)
+                      ?.cantidad.toString()}
+                    data-testid={`select-option-cantidad-${article.id}`}
                     onChange={(e: any) => {
                       addArticle(
                         article.id,
@@ -148,6 +152,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles }) => {
               </h1>
               <Button
                 text="Agregar al carrito"
+                data-testid={`agregar-carrito-${article.id}`}
                 className="bg-[#00a99d] p-4 text-white hover:bg-[#3cc2b8] mt-10 rounded-lg"
                 disabled={article.fechaDeValidez === getProductDate(false)}
                 onClick={() => {

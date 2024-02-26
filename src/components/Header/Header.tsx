@@ -1,7 +1,7 @@
-import Button from '@/components/Button';
-import useAuthStore from '@/store/useAuthStore';
-import useGlobalStore from '@/store/useGlobalStore';
 import clorianImg from '../../assets/clorian_header.png';
+import Button from '../../components/Button';
+import useAuthStore from '../../store/useAuthStore';
+import useGlobalStore from '../../store/useGlobalStore';
 
 const Header = () => {
   const { isAuthenticated, setIsAuthenticated } = useAuthStore(

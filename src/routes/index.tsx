@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Purchase from '@/pages/Purchase/Purchase';
 import Articles from '../pages/Articles';
 import Home from '../pages/Home';
+import Purchase from '../pages/Purchase';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 

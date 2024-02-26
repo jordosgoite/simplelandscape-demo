@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
-import Button from '@/components/Button';
-import Modal from '@/components/Modal/Modal';
-import ModalMsg from '@/components/Modal/ModalMsg';
-import useGlobalStore from '@/store/useGlobalStore';
+import Button from '../../components/Button';
+import Modal from '../../components/Modal/Modal';
+import ModalMsg from '../../components/Modal/ModalMsg';
+import useGlobalStore from '../../store/useGlobalStore';
 
 const Purchase = () => {
   const {
@@ -20,7 +20,7 @@ const Purchase = () => {
   return (
     <div className="container my-12 mx-auto px-4 md:px-12 relative">
       <div
-        className="flex flex-col flex-wrap bg-[#d0f5f2] rounded-lg"
+        className="flex flex-col flex-wrap rounded-lg"
         style={{
           padding: window.innerWidth < 768 ? '20px' : '100px 150px',
           color: '#00a99d',
@@ -55,7 +55,7 @@ const Purchase = () => {
               <tr>
                 <td></td>
                 <td></td>
-                <td className="text-xl md:text-sm font-bold">Total General</td>
+                <td className="text-xl font-bold">Total General</td>
                 <td className="text-xl font-bold">{`${totalPurchase} €`}</td>
               </tr>
             </tbody>
