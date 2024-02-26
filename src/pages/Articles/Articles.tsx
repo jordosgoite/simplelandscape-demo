@@ -103,6 +103,7 @@ const Articles = () => {
         </div>
         <button
           className="h-auto ml-4 flex flex-col items-center cursor-pointer fixed right-4 mr-4"
+          disabled={totalProducts===0}
           onClick={() => {
             navigate('/purchase');
           }}

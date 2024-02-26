@@ -39,8 +39,8 @@ const useGlobalStore = create<GlobalStore>()(
         });
       },
       updateSelectedProducts: (data) => {
-        set((state) => {
-          setItem('selectedProducts', state.selectedProducts);
+        set(() => {
+          setItem('selectedProducts', data);
           return { selectedProducts: data };
         });
       },

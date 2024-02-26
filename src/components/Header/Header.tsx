@@ -1,11 +1,14 @@
 import Button from '@/components/Button';
 import useAuthStore from '@/store/useAuthStore';
+import useGlobalStore from '@/store/useGlobalStore';
 import clorianImg from '../../assets/clorian_header.png';
 
 const Header = () => {
   const { isAuthenticated, setIsAuthenticated } = useAuthStore(
     (state) => state
   );
+  const { updateSelectedProducts, updateTotalAmount, updateTotalProducts } =
+    useGlobalStore((state) => state);
 
   return (
     <nav className="bg-white shadow-lg">
@@ -13,7 +16,12 @@ const Header = () => {
         <div className="flex justify-between">
           <div className="flex space-x-7">
             <div>
-              <a href="#" className="flex items-center py-4 px-2">
+              <a
+                href="https://clorian.com/"
+                target="_blank"
+                className="flex items-center py-4 px-2"
+                rel="noreferrer"
+              >
                 <img
                   alt="Placeholder"
                   className="block h-auto w-full"
@@ -26,7 +34,9 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-3 ">
             <a
               href="https://github.com/jordosgoite/clorian-demo"
+              target="_blank"
               className="py-2 px-2 font-medium text-white bg-[#00a99d] hover:bg-[#3cc2b8] rounded transition duration-300"
+              rel="noreferrer"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -44,6 +54,9 @@ const Header = () => {
                 className="py-3 px-3 font-medium text-white text-xs bg-[#00a99d] hover:bg-[#3cc2b8] rounded transition duration-300"
                 onClick={() => {
                   setIsAuthenticated(false);
+                  updateSelectedProducts([]);
+                  updateTotalAmount(0);
+                  updateTotalProducts(0);
                 }}
               />
             )}

@@ -11,11 +11,15 @@ export interface ArticleListProps {
 }
 
 const ArticleList: React.FC<ArticleListProps> = ({ articles }) => {
-  const [selectedArticles, setSelectedArticles] = useState<SelectedArticle[]>(
-    []
-  );
-  const { updateSelectedProducts, updateTotalProducts, updateTotalAmount } =
-    useGlobalStore((state) => state);
+  const {
+    selectedProducts,
+    updateSelectedProducts,
+    updateTotalProducts,
+    updateTotalAmount,
+  } = useGlobalStore((state) => state);
+  const [selectedArticles, setSelectedArticles] = useState<SelectedArticle[]>([
+    ...selectedProducts,
+  ]);
   if (!articles?.length) {
     return <div>No se encontraron productos</div>;
   }
@@ -72,43 +76,32 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles }) => {
           className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3"
         >
           <article className="overflow-hidden rounded-lg shadow-lg">
-            <a href={article.img} target="_blank" rel="noreferrer">
-              {article.img ? (
-                <img
-                  alt={article.nombre}
-                  className="block w-full"
-                  src={article.img}
-                  style={{ height: '250px' }}
+            {article.img ? (
+              <img
+                alt={article.nombre}
+                className="block w-full"
+                src={article.img}
+                style={{ height: '250px' }}
+              />
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-[215px] w-[370px] bg-gray-100"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
                 />
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-[215px] w-[370px] bg-gray-100"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </svg>
-              )}
-            </a>
+              </svg>
+            )}
 
             <header className="flex items-center justify-between leading-tight p-2 md:p-4">
-              <h1 className="text-lg">
-                <a
-                  className="no-underline hover:underline text-black"
-                  href={article.img}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {article.nombre}
-                </a>
-              </h1>
+              <h1 className="text-lg">{article.nombre}</h1>
               <p className="text-grey-darker text-sm">
                 {article.fechaDeValidez}
               </p>
@@ -155,7 +148,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ articles }) => {
               </h1>
               <Button
                 text="Agregar al carrito"
-                className="bg-[#00a99d] p-4 text-white hover:bg-[#3cc2b8] mt-10"
+                className="bg-[#00a99d] p-4 text-white hover:bg-[#3cc2b8] mt-10 rounded-lg"
                 disabled={article.fechaDeValidez === getProductDate(false)}
                 onClick={() => {
                   handleSubmitArticles();
