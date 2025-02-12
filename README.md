@@ -1,6 +1,6 @@
-# Clorian Frontend Test - made by Juan Ordosgoite
+# Frontend template - made by Juan Ordosgoite
 
-This is my Frontend test created for Clorian. The project includes:
+This is my Frontend template that includes:
 
 - Login page (used to demostrate the advantages of react query - simple example, save user authenticated data with zustand and routing with react router dom). 
 
